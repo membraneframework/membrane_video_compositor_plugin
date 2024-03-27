@@ -181,18 +181,6 @@ defmodule Membrane.LiveCompositor do
   @type lc_request_response :: {:lc_request_response, lc_request(), Req.Response.t(), Context.t()}
 
   @typedoc """
-  Notification sent to the parent after input is successfully registered and TCP connection between
-  pipeline and LiveCompositor server is successfully established.
-  """
-  @type input_registered_msg :: {:input_registered, Pad.ref(), Context.t()}
-
-  @typedoc """
-  Notification sent to the parent after output is successfully registered and TCP connection between
-  pipeline and LiveCompositor server is successfully established.
-  """
-  @type output_registered_msg :: {:output_registered, Pad.ref(), Context.t()}
-
-  @typedoc """
   Range of ports.
   """
   @type port_range :: {lower_bound :: :inet.port_number(), upper_bound :: :inet.port_number()}
