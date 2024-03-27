@@ -383,6 +383,13 @@ defmodule Membrane.LiveCompositor do
         spec: video_encoder_preset(),
         default: :fast
       ],
+      ffmpeg_options: [
+        spec: map() | nil,
+        default: nil,
+        description: """
+        Raw FFmpeg encoder options. See [docs](https://ffmpeg.org/ffmpeg-codecs.html) for more.
+        """
+      ],
       send_eos_when: [
         spec: send_eos_condition(),
         default: nil,

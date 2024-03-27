@@ -97,6 +97,7 @@ defmodule Membrane.LiveCompositor.StreamsHandler do
             height: output_pad_opts.height
           },
           encoder_preset: output_pad_opts.encoder_preset,
+          ffmpeg_options: output_pad_opts.ffmpeg_options,
           initial: output_pad_opts.initial
         }
       }
