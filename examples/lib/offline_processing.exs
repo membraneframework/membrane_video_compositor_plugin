@@ -23,7 +23,7 @@ defmodule OfflineProcessing do
       child(:video_compositor, %LiveCompositor{
         framerate: {30, 1},
         server_setup: server_setup,
-        composing_strategy: :ahead_of_time,
+        composing_strategy: :offline_processing,
         init_requests: [
           register_shader_request_body()
         ]

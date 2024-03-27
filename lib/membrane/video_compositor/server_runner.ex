@@ -15,8 +15,8 @@ defmodule Membrane.LiveCompositor.ServerRunner do
 
     env = %{
       "LIVE_COMPOSITOR_INSTANCE_ID" => instance_id,
-      "LIVE_COMPOSITOR_AHEAD_OF_TIME_PROCESSING_ENABLE" =>
-        to_string(opt.composing_strategy == :ahead_of_time),
+      "LIVE_COMPOSITOR_OFFLINE_PROCESSING_ENABLE" =>
+        to_string(opt.composing_strategy == :offline_processing),
       "LIVE_COMPOSITOR_OUTPUT_FRAMERATE" => framerate_str,
       "LIVE_COMPOSITOR_STREAM_FALLBACK_TIMEOUT_MS" =>
         to_string(Membrane.Time.as_milliseconds(opt.stream_fallback_timeout, :round))

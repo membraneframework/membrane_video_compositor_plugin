@@ -236,17 +236,21 @@ defmodule Membrane.LiveCompositor do
                 default: Membrane.Time.seconds(2)
               ],
               composing_strategy: [
-                spec: :real_time_auto_init | :real_time | :ahead_of_time,
+                spec: :real_time_auto_init | :real_time | :offline_processing,
                 description: """
                 Specifies LiveCompositor mode for composing frames:
                 - `:real_time` - Frames are produced at a rate dictated by real time clock. The parent
                 process has to send `:start_composing` message to start.
                 - `:real_time_auto_init` - The same as `:real_time`, but the pipeline starts
                 automatically and sending `:start_composing` message is not necessary.
-                - `:ahead_of_time` - Output streams will be produced faster than in real time
-                if input streams are ready. When using this option, make sure to register the output
-                stream before starting; otherwise, the compositor will run in a busy loop processing
-                data far into the future.
+                - `:offline_processing`
+                  - Output streams will be produced faster than in real time if input streams are
+                  ready.
+                  - Never drop output frames, even if the encoder or rendering process is not able to
+                  process data in real time.
+
+                    When using this option, make sure to register the output stream before starting;
+                    otherwise, the compositor will run in a busy loop processing data far into the future.
                 """,
                 default: :real_time_auto_init
               ],

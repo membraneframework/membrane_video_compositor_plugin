@@ -13,7 +13,7 @@ defmodule Membrane.LiveCompositor.State do
           context: Context.t(),
           output_framerate: Membrane.RawVideo.framerate_t(),
           output_sample_rate: LiveCompositor.output_sample_rate(),
-          composing_strategy: :real_time_auto_init | :real_time | :ahead_of_time,
+          composing_strategy: :real_time_auto_init | :real_time | :offline_processing,
           lc_port: :inet.port_number(),
           server_pid: pid() | nil,
           tcp_sink_eos: MapSet.t()
