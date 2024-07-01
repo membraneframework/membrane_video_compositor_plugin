@@ -264,8 +264,7 @@ impl State {
 
             println!(
                 "Available Vulcan adapters: {:#?}",
-                instance
-                    .enumerate_adapters(Backends::VULKAN)
+                instance.enumerate_adapters(Backends::VULKAN)
             );
         }
 
