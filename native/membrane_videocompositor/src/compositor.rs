@@ -58,8 +58,8 @@ impl State {
             .request_device(
                 &wgpu::DeviceDescriptor {
                     label: Some("device"),
-                    features: wgpu::Features::empty(),
-                    limits: wgpu::Limits::default(),
+                    required_features: wgpu::Features::empty(),
+                    required_limits: wgpu::Limits::default(),
                 },
                 None,
             )
@@ -266,7 +266,6 @@ impl State {
                 "Available Vulcan adapters: {:#?}",
                 instance
                     .enumerate_adapters(Backends::VULKAN)
-                    .collect::<Vec<Adapter>>()
             );
         }
 
